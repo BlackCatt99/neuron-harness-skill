@@ -3,6 +3,9 @@
 `neuron-harness skill` keeps its skill ID and `.neuron-harness/` namespace. The public repository
 is `neuron-harness-skill`; the checkout directory stays `neuron-harness`. Downloading a repository is not the same as activating a skill.
 
+For the agent continuation after the homepage clone command, use the repository-root
+[INSTALL.md](../INSTALL.md). The contract below remains authoritative.
+
 ## Installation contract
 
 1. Install Git and PowerShell 7 separately; no automatic dependency installation or privilege elevation.

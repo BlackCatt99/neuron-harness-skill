@@ -8,6 +8,20 @@
 
 **English** | [中文](README.md)
 
+## Give your agent one line to install
+
+**Give this line to your agent to install the skill and connect your current project:**
+
+```sh
+git clone https://github.com/BlackCatt99/neuron-harness-skill.git neuron-harness
+```
+
+Agent: preserve the current business project's path, run this command in a stable directory outside
+that project, then read [INSTALL.md](INSTALL.md) in the checkout. Continue with host detection,
+initialization, project-rule integration and status checks. The user need not fill in the manual
+installation parameters below. `git clone` only downloads the repository; the agent performs the
+remaining steps. Inspect any existing destination instead of overwriting it.
+
 ![neuron-harness: Keep the memory. Lose the noise.](docs/brand/hero.en.png)
 
 > **Goal**: every turn of a long-running session carries only what's relevant — less dilution of
@@ -33,10 +47,8 @@ Chinese edition: [architecture](docs/architecture.svg).
 
 </details>
 
-> Structurally neuron-inspired: T1 is the currently active core, T2–T4 spread outward toward the
-> edge, and entries decay downward when untouched for a long time. Mechanically it is a symbolic
-> system — keyword/tag matching, explicit tier parameters, absolute day thresholds. It is **not**
-> weight matrices or vector similarity. That distinction matters: don't call it a neural network.
+Long-running work survives a new session: the active state stays central, older material recedes
+with disuse, and the original text remains recoverable in full.
 
 ## What problem it solves
 
@@ -77,15 +89,13 @@ memory. They solve different problems with different trade-offs; this is not a r
   traceable, no service is involved, and a human can audit it with plain text tools → the target
   scenario for this project.
 
-Deliberately out of scope: no vector search service, no agent self-editing memory, no hosted
-platform. Retrieval is tag and keyword matching (see "Boundaries and known limitations"). That is a
-deliberate simplification, not an unfinished feature.
+It fits directly into an existing agent workflow: one PowerShell 7 script, plain-text state, and no
+new service, database or hosted platform.
 
 ## Boundaries and known limitations
 
-Stating boundaries clearly is more useful than piling on selling points. Two categories:
-**capability boundaries** are by design and won't change; **current limitations** are shortfalls of
-this version and can be improved.
+It is built for long tasks that need traceable originals and controlled injection. It retrieves
+material precisely by task, tags, keywords and explicit tiers; it is not semantic vector search.
 
 **Capability boundaries (by design)**
 
@@ -120,7 +130,11 @@ this version and can be improved.
 | Three retrieval tiers | Tier 1 continuous work, no retrieval; Tier 2 neighborhood recall along the dependency graph; Tier 3 full re-evaluation |
 | staging | Subagent output lands in a buffer first and only enters the index after source validation |
 
-## Install and activate per-turn guidance
+## Manual installation reference (normally handled by the agent)
+
+Use the [one-line entry above](#give-your-agent-one-line-to-install) and let the agent follow
+[INSTALL.md](INSTALL.md). The commands below are for manual setup and troubleshooting; the agent
+must replace the example `zcode` with its verified host.
 
 Prerequisites: **Git and PowerShell 7**. The installer below belongs to v0.2.0; older release
 archives do not contain it. Use a revision containing `scripts/integrate.ps1`. Download the skill
