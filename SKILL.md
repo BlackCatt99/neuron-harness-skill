@@ -20,6 +20,7 @@ description: |
 
 ## 首次安装与项目常驻接入
 
+- 用户把首页的一行 `git clone` 交给 agent 时，先读仓库根目录 `INSTALL.md`，再识别宿主、初始化并接入项目。clone 本身只下载。
 - 这是 Agent Skill，不是独立 agent 框架。公开仓库名为 `neuron-harness-skill`，skill ID 与状态目录仍为 `neuron-harness`。
 - 用户明确启用项目集成后，使用 `scripts/integrate.ps1 -Action Plan -Harness <类型> -Project <绝对项目根>` 预览，再 Install。先通过 `assemble.ps1 -Mode Init` 初始化。
 - 安装器仅维护项目规则中的短托管块和 `.neuron-harness/runtime.md`；不自授权限、不改全局配置、不覆盖原有规则。
